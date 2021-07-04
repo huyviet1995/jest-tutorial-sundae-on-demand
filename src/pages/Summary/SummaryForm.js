@@ -1,21 +1,36 @@
-import React, {useState} from 'react'
-import { Form } from 'react-bootstrap'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
+import Popover, { Header, Body } from 'react-bootstrap/Popover'
+import Form from 'react-bootstrap/Form'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 
-const SummaryForm = props => {
-  const [isChecked, setIsChecked] = useState(false)
+const PopoverComponent = (
+  <Popover id="popover-basic">
+    <Popover.Content>
+      No ice cream will actually be delivered
+    </Popover.Content>
+  </Popover>
+);
 
-  const checkboxLabel = (
+
+const checkboxLabel = (
     <label htmlFor="checkbox">
-      I agree to the <a href="#">Terms and Conditions</a>
+      I agree to the 
+      <OverlayTrigger placement="bottom" overlay={PopoverComponent}>
+        <a href="#">
+          Terms and Conditions
+        </a>
+      </OverlayTrigger>
     </label>
-  )
+)
+
+
+function SummaryForm(props) {
+  const [isChecked, setIsChecked] = useState(false)
 
   const handleChange = e => {
     setIsChecked(e.target.checked)
   }
-
-  console.log({ isChecked })
 
   return (
     <Form>
@@ -25,11 +40,10 @@ const SummaryForm = props => {
           type="checkbox"
           checked={isChecked}
           onChange={handleChange}
-          label={checkboxLabel}
-        />
-        <Button 
+          label={checkboxLabel} />
+        <Button
           disabled={!isChecked}
-          type="submit"
+          type="button"
           variant="primary"
         >
           Confirm order
