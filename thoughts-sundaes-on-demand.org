@@ -1,0 +1,10 @@
+CLOCK: [2021-7-5 Mon 23:31]
+* TODO Now it is time for me to do the toppings part of Sundaes On Demand man
+** TODO Things to do right here.
+
+CLOCK: [2021-7-6 Tue 23:19]
+* DONE Now it is time for me to fix the last test man!
+
+
+
+
