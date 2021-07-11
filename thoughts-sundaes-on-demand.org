@@ -5,6 +5,100 @@ CLOCK: [2021-7-5 Mon 23:31]
 CLOCK: [2021-7-6 Tue 23:19]
 * DONE Now it is time for me to fix the last test man!
 
+CLOCK: [2021-7-10 Sat 13:23]
+* TODO I am still working on the jest tutorial. However, I don't know how the React Context is used right here man. 
+** TODO Here is the step by step as I can see it
+1. a context called OrderDetails is created using the createContext(). This will return a context so it can be imported in other place
+2. Create a provider called OrderDetailsProvider. This is a React Component that will return the <Context.Provider> 
+3. Wrap the ContextProvider around all the children components WHERE the data provided by the Context should be used
+4. And then in order to use the context data within a children component, I will just need to call the context hook and then extract all the data/variabled provided by the Context Hook 
+
+> Regarding the React testing, I mean I was having troubles with testing that API, is that correct?
+> In case there is an axios calls, and then some components will be rendered after the API call returns some results => how should I handle the problem?
+> Humh, to do this, I will probably need to clone the code and start working on this by myself
+* DONE Yes, will need to setup this man
+? What is the problem in here exactly?
+> The problem in here is that WHEN I open the modal delete button
+=> I could clearly see that the "do you want to remove the user" text content appear. This sounds valid because of the fact that if I don't call the user event then this text will not appear
+? However, when the text appears, the close button even though it shows up in the console, does not get detected. Why is this happening?
+> This raises a question why the heck accessible role is not detected even though the element clearly show up in the DOM
+> Humh, I see. This is because of the fact that hidden is set to false by default
+? Then what is hidden used for in this case?
+> Cool, I can see that the aria-hidden = true => therefore, button will be listed as one of the accessible role
+> Also, only when the modal is visible can I query the button with the role=hidden
+CLOCK: [2021-7-10 Sat 15:27]
+* TODO Now the next problem I am having troubles with is that even though I have done clicking the Close Button, I did expect that /do you want to remove user/ should be removed. However, it is still in the DOM for some reasons. I will need to check out why this is happening man?
+> Humh, I have come up with a new strategy. That is WHEN I click the closeBtn => I expect it to disappear however, there are mu
+
+> I am getting freaking confused right here. even though I have clicked the removeButton
+> I expect that that the modal with the remove user should show up right.
+> but the aria-hidden still there
+
+CLOCK: [2021-7-10 Sat 16:27]
+* TODO Another question I would like to ask is that even though I have clicked the button to open the modal => the aria hidden does not get changed to aria-hidden=true
+> What I would like to see is that waitFor should wait AFTER the DOM has finished updated, not before it man
+> I have just come up with something pretty cool.
+> What happens if after I click the close btn => I will probably wait for the diaglog to not hidden
+> Okay, seems like I have seriously stuck with this
+> I will need to find a way
+> In the documentation, it says that waitFor is used to check if an API is called correctly or if an element will appear in the DOM
+> it does not say anything about 
+> Humh, waitFor when I read the document, states that whenever the DOM changes, it will call again. but I don't see anything happening man
+> Something just dawns on me 
+> I believe that this happens because I don't actually include the COnfirmModal right here?
+> No the ConfirmModal is definitely in the DOM. if it is not in the DOM, then I will not be able to see the HTML attributes related to this!
+> I will probably stop doing this for now so I can come back later
+
+CLOCK: [2021-7-11 Sun 14:8]
+* TODO Alright let's keep working on the Sundae on demands. I am having troubles right here.
+** DONE I would like to make the test pass!
+> I keep receiving an error called CORS right here.
+> I am trying to fix this error by trying to install the Chrome Browser
+> I am trying to install Google Chrome to see if this is working correct man.
+> Cool, sounds like I am able to make this pass!
+> Let's do the test for the Toppings Subtotal 
+
+CLOCK: [2021-7-11 Sun 16:10]
+* TODO First thing first, Assert on default toppings subtotal
+? How should I do this man?
+> This means I will need to change the default options to something else.
+? What is something else I would like to talk about here?
+** DONE I am having some troubles right here. Because each topping has the price of 1.5. I do expect that the Toppings Total should be equal 1.5 not 0. Why it is showing 0 right here?
+> I will need to look into the problem to see why this is happening man?
+> I can see that something weird going on right here.
+? I can clearly see that even though the optionType is 'toppings', the optionCount is still 0
+> This happens because I will need to code to go through 
+CLOCK: [2021-7-11 Sun 17:8]
+** TODO Next point is, find and tick one box, assert on updated subtotal
+? What does it mean by ticking one box and asserting on updated total?
+> Ah I see what the author means by this. I believe that what she meant
+> I believe what she meant was that the subtotal for the toppings option is not calculated unless I check the box
+> if this is the case, then I will need to come up with a solution.
+*** DONE so I will probably create a checkbox for the subtotal again
+
+*** TODO implement this to pass the test when I click the checkbox => then subtotal will be taken into account
+> Humh, I am having some troubles right here. 
+> does expect after calling userEvent.click happens asynchronously?
+> I believe that it should because when the user clicks the icecreamCheckbox => updateItemCount happen again, which should re-render the whole component
+> but then the toppingSubtotals still pass the expect test. Which is kinda weird for me
+CLOCK: [2021-7-11 Sun 19:14]
+*** TODO Alright, let's start working on the grand totals right here
+> let's go over each test step by step
+> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
